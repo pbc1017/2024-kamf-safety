@@ -1,5 +1,5 @@
 {
-  "name": "@sparcs-clubs/interface",
+  "name": "@kamf-safety/interface",
   "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",

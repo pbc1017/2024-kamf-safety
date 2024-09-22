@@ -6,7 +6,7 @@
     "declarationMap": true,
     "baseUrl": "./src",
     "paths": {
-      "@sparcs-clubs/interface/*": ["./*"]
+      "@kamf-safety/interface/*": ["./*"]
     }
   },
   "include": ["./src/**/*.ts"]

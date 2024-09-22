@@ -2,8 +2,8 @@ import {
   createErrorResponse,
   PaginationRequest,
   PaginationResponse,
-} from "@sparcs-clubs/interface/common/api";
-import { IApiObject } from "@sparcs-clubs/interface/type";
+} from "@kamf-safety/interface/common/api";
+import { IApiObject } from "@kamf-safety/interface/type";
 import { HttpStatusCode } from "axios";
 import { z } from "zod";
 
