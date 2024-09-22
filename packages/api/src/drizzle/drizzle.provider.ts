@@ -4,7 +4,8 @@ import mysql from "mysql2/promise";
 import logger from "../common/util/logger";
 import { env } from "../env";
 
-import * as exampleSchema from "./schema/example.schema";
+import * as userSchema from "./schema/user.schema";
+import * as safetySchema from "./schema/safety.schema";
 
 export const DrizzleAsyncProvider = "drizzleProvider";
 
@@ -47,7 +48,8 @@ export const getDbInstance = async () => {
     const connection = await getConnection();
     dbInstance = drizzle(connection, {
       schema: {
-        exampleSchema,
+        userSchema,
+        safetySchema,
       },
       mode: "default",
       logger: true,
