@@ -9,7 +9,7 @@
     "dev": "pnpm db up -d && pnpm start:dev",
     "dev:no-db": "pnpm start:dev",
     "prod": "pnpm migrate:prod && pnpm start:prod",
-    "db": "docker compose -f ../../.docker/docker-compose.dev.yml -p ar-002-clubs",
+    "db": "docker compose -f ../../.docker/docker-compose.dev.yml -p 2024-kamf-safety",
     "env": "echo $NODE_ENV",
     "clean": "rm -rf dist",
     "generate": "pnpm db up --wait && pnpm drizzle-kit push:mysql --config ./src/drizzle/drizzle.config.ts",
