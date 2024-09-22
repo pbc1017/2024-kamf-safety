@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
-import logoSvg from "@sparcs-clubs/web/assets/logo.svg";
+import logoSvg from "@kamf-safety/web/assets/logo.svg";
 
 const LogoInner = styled.div`
   position: relative;

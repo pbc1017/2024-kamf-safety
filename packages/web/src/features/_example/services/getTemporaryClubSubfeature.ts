@@ -2,7 +2,7 @@ import {
   axiosClient,
   defineAxiosMock,
   UnexpectedAPIResponseError,
-} from "@sparcs-clubs/web/lib/axios";
+} from "@kamf-safety/web/lib/axios";
 import { apiTmp000 } from "@sparcs-clubs/interface/api/_example/endpoints/apiTmp000";
 import { useQuery } from "@tanstack/react-query";
 import { z } from "zod";

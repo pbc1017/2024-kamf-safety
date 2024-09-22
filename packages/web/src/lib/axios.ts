@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { env } from "@sparcs-clubs/web/env";
+import { env } from "@kamf-safety/web/env";
 import mockInterceptor from "./_axios/axiosMockInterceptor";
 import tokenInterceptor from "./_axios/axiosAuthTokenInterceptor";
 import errorInterceptor from "./_axios/axiosErrorInterceptor";

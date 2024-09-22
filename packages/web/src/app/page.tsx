@@ -1,6 +1,6 @@
 "use client";
 
-import ExampleComponent from "@sparcs-clubs/web/common/components/ExampleComponent";
+import ExampleComponent from "@kamf-safety/web/common/components/ExampleComponent";
 
 const Home = () => <ExampleComponent>Welcome to KAMF Safety!</ExampleComponent>;
 

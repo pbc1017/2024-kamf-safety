@@ -11,7 +11,7 @@ import { ThemeProvider as StyledProvider } from "styled-components";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import theme from "@sparcs-clubs/web/styles/themes";
+import theme from "@kamf-safety/web/styles/themes";
 
 export const UseClientProvider: React.FC<React.PropsWithChildren> = ({
   children = <div />,

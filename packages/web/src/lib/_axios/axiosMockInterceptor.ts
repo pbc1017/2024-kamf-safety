@@ -1,4 +1,4 @@
-import { env } from "@sparcs-clubs/web/env";
+import { env } from "@kamf-safety/web/env";
 import { AxiosError, InternalAxiosRequestConfig } from "axios";
 import log from "loglevel";
 

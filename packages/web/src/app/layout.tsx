@@ -2,18 +2,15 @@ import type { Metadata } from "next";
 
 import classNames from "classnames";
 
-import "@sparcs-clubs/web/styles/globals.css";
+import "@kamf-safety/web/styles/globals.css";
 
-import {
-  pretendard,
-  raleway,
-} from "@sparcs-clubs/web/styles/fonts/googleFonts";
-import StyledComponentsRegistry from "@sparcs-clubs/web/common/libs/styledComponents/StyledComponentRegistry";
+import { pretendard, raleway } from "@kamf-safety/web/styles/fonts/googleFonts";
+import StyledComponentsRegistry from "@kamf-safety/web/common/libs/styledComponents/StyledComponentRegistry";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
-import { UseClientProvider } from "@sparcs-clubs/web/common/providers/UseClientProvider";
-import ResponsiveContent from "@sparcs-clubs/web/common/components/Responsive";
+import { UseClientProvider } from "@kamf-safety/web/common/providers/UseClientProvider";
+import ResponsiveContent from "@kamf-safety/web/common/components/Responsive";
 
 export const metadata: Metadata = {
   title: "2024 KAMF Safety",

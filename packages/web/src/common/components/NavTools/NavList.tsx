@@ -3,8 +3,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import type { Paths } from "@sparcs-clubs/web/constants/paths";
-import paths from "@sparcs-clubs/web/constants/paths";
+import type { Paths } from "@kamf-safety/web/constants/paths";
+import paths from "@kamf-safety/web/constants/paths";
 
 import NavItem from "./NavItem";
 
