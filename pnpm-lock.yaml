@@ -102,7 +102,7 @@ importers:
       '@nestjs/testing':
         specifier: ^10.0.0
         version: 10.4.3(@nestjs/common@10.4.3)(@nestjs/core@10.4.3)(@nestjs/platform-express@10.4.3)
-      '@sparcs-clubs/interface':
+      '@kamf-safety/interface':
         specifier: workspace:*
         version: link:../interface
       '@types/express':
@@ -236,7 +236,7 @@ importers:
         specifier: ^4.5.2
         version: 4.5.5(@types/react@18.3.8)(immer@10.1.1)(react@18.3.1)
     devDependencies:
-      '@sparcs-clubs/interface':
+      '@kamf-safety/interface':
         specifier: workspace:*
         version: link:../interface
       '@tanstack/react-query-devtools':
