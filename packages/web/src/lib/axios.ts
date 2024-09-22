@@ -7,7 +7,6 @@ import errorInterceptor from "./_axios/axiosErrorInterceptor";
 
 /**
  * @name axiosClient
- * @author Jiho Park (night@sparcs.org)
  * @description Axios Client used for backend API requests that require NO authentication
  */
 export const axiosClient = axios.create({
@@ -52,7 +51,6 @@ axiosClientWithAuth.interceptors.request.use(
 
 /**
  * @name defineAxiosMock
- * @author Jiho Park (night@sparcs.org)
  * @description Defines the mock mode for axiosClient
  */
 export const defineAxiosMock = (() => {

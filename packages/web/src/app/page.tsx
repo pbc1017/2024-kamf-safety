@@ -2,10 +2,6 @@
 
 import ExampleComponent from "@sparcs-clubs/web/common/components/ExampleComponent";
 
-const Home = () => (
-  <ExampleComponent>
-    Welcome to SPARCS Clubs! The frontend is working well!
-  </ExampleComponent>
-);
+const Home = () => <ExampleComponent>Welcome to KAMF Safety!</ExampleComponent>;
 
 export default Home;
