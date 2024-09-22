@@ -26,9 +26,10 @@ const ButtonInner = styled.button`
 const ButtonDefaultInner = styled(ButtonInner)`
   color: ${({ theme }) => theme.colors.WHITE};
   background: ${({ theme }) => theme.colors.PRIMARY};
+  border: 1px solid ${({ theme }) => theme.colors.GRAY[200]};
   cursor: pointer;
   &:hover {
-    background: ${({ theme }) => theme.colors.MINT[800]};
+    background: ${({ theme }) => theme.colors.ORANGE[600]};
   }
 `;
 
