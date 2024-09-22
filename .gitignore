@@ -1,0 +1,14 @@
+*.pub
+.env
+.env.prod
+**/node_modules
+*.log
+
+# IDE Configurations
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# File system
+**/.DS_Store 
+
