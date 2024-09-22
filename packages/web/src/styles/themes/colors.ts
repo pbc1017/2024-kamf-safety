@@ -10,6 +10,7 @@ const colors = {
   BACKGROUND:
     "linear-gradient(180deg, #EAFAFC 0%, #FFFFFF 33.33%, #FFFFFF 66.67%, #FFFFFF 100%)",
   GREEN: {
+    100: "#F5FFF5",
     200: "#E9F9EF",
     600: "#008B1C",
   },
@@ -32,6 +33,26 @@ const colors = {
   YELLOW: {
     200: "#FFFDE9",
     600: "#E9A311",
+  },
+
+  MINT: {
+    100: "#F4FAFA",
+    300: "#92CCD4",
+    800: "#0C7F8E",
+  },
+  GRAY: {
+    100: "#FAFAFA",
+    200: "#EEEEEE",
+    300: "#DDDDDD",
+    600: "#555555",
+  },
+  RED: {
+    100: "#FFF5F5",
+    600: "#DC2626",
+  },
+  SPARCS: {
+    main: "#EBA12A",
+    member: "#EBA12A66",
   },
 };
 

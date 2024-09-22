@@ -1,7 +1,7 @@
 "use client";
 
-import ExampleComponent from "@kamf-safety/web/common/components/ExampleComponent";
+import Typography from "../common/components/Typography";
 
-const Home = () => <ExampleComponent>Welcome to KAMF Safety!</ExampleComponent>;
+const Home = () => <Typography>Welcome to KAMF Safety!</Typography>;
 
 export default Home;
