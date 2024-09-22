@@ -1,5 +1,5 @@
 import { NestFactory } from "@nestjs/core";
-import { env } from "@sparcs-clubs/api/env";
+import { env } from "@kamf-safety/api/env";
 import { AppModule } from "./app.module";
 
 async function bootstrap() {

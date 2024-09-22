@@ -32,7 +32,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@sparcs-clubs/interface": "workspace:*",
+    "@kamf-safety/interface": "workspace:*",
     "@tanstack/react-query-devtools": "^5.28.4",
     "@types/node": "^20",
     "@types/react": "^18",
