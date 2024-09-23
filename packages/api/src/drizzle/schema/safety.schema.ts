@@ -1,11 +1,11 @@
-import { int, timestamp, mysqlTable } from "drizzle-orm/mysql-core";
+import { int, timestamp, mysqlTable, varchar } from "drizzle-orm/mysql-core";
 import { User } from "./user.schema";
 
 export const Safety = mysqlTable("safety", {
   id: int("id").autoincrement().primaryKey(),
-  studentId: int("student_id")
+  userId: varchar("user_id", { length: 128 })
     .notNull()
-    .references(() => User.studentId),
+    .references(() => User.id),
   increament: int("increament").notNull(),
   decreament: int("decreament").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
