@@ -29,7 +29,7 @@ const ButtonDefaultInner = styled(ButtonInner)`
   border: 1px solid ${({ theme }) => theme.colors.GRAY[200]};
   cursor: pointer;
   &:hover {
-    background: ${({ theme }) => theme.colors.ORANGE[600]};
+    background: ${({ theme }) => theme.colors.ORANGE[800]};
   }
 `;
 
