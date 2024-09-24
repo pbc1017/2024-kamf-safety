@@ -11,6 +11,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 import { UseClientProvider } from "@kamf-safety/web/common/providers/UseClientProvider";
 import ResponsiveContent from "@kamf-safety/web/common/components/Responsive";
+import Header from "@kamf-safety/web/common/components/Header";
 
 export const metadata: Metadata = {
   title: "2024 KAMF Safety",
@@ -26,6 +27,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <AppRouterCacheProvider>
         <StyledComponentsRegistry>
           <UseClientProvider>
+            <Header />
             <ResponsiveContent>{children}</ResponsiveContent>
           </UseClientProvider>
         </StyledComponentsRegistry>
