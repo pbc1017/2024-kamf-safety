@@ -5,11 +5,11 @@
  * @description This file provides a provider that can be used to wrap components that use client-side rendering.
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { ThemeProvider as StyledProvider } from "styled-components";
+import * as ChannelService from "@channel.io/channel-web-sdk-loader";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import theme from "@kamf-safety/web/styles/themes";
 
@@ -31,13 +31,20 @@ export const UseClientProvider: React.FC<React.PropsWithChildren> = ({
       }),
   );
 
+  useEffect(() => {
+    // Channel Talk
+    ChannelService.loadScript();
+    ChannelService.boot({
+      pluginKey: "9a81422c-9f67-4a6a-bfb3-8f8af402a366",
+    });
+  }, []);
+
   return (
     <main>
       {/* @ts-expect-error-next-line */}
       <StyledProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
           {children}
-          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </StyledProvider>
     </main>
