@@ -17,6 +17,7 @@ const HeaderContainer = styled.header`
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(false);
 
   const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
@@ -24,6 +25,10 @@ const Header: React.FC = () => {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("isEnglish", isEnglish.toString());
+  }, [isEnglish]);
 
   useEffect(() => {
     if (isOpen) {
@@ -39,14 +44,12 @@ const Header: React.FC = () => {
   return (
     <>
       <HeaderContainer>
+        <Icon type="menu" size={24} onClick={() => setIsOpen(!isOpen)} />
         <Icon
-          type="menu"
+          type="language"
           size={24}
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
+          onClick={() => setIsEnglish(!isEnglish)}
         />
-        <Icon type="language" size={24} />
       </HeaderContainer>
       {isOpen && <MobileNav keys={["HOME", "SAFETY"]} />}
     </>
