@@ -11,8 +11,7 @@ import {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(env.SERVER_PORT);
-  // localhost에서의 cors 해결
+
   if (process.env.NODE_ENV === "development") {
     app.enableCors({
       origin: `http://localhost:${process.env.CLIENT_PORT}`,

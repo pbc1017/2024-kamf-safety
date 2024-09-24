@@ -21,6 +21,8 @@ const requestBody = z.object({
 
 const responseBodyMap = {
   [HttpStatusCode.Ok]: z.object({
+    myIncrement: z.number().int(),
+    myDecrement: z.number().int(),
     total: z.number().int(),
   }),
 };
