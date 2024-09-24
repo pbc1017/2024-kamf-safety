@@ -35,12 +35,15 @@ const SafetyFrame = () => {
   return (
     <FlexWrapper direction="column" gap={32} justify="center">
       <FlexWrapper direction="column" gap={12} style={{ alignItems: "center" }}>
-        <Typography fs={24} fw="BOLD" style={{ alignSelf: "center" }}>
+        <Typography
+          fs={24}
+          fw="BOLD"
+          color="WHITE"
+          style={{ alignSelf: "center" }}
+        >
           2024 KAMF 안전관리
         </Typography>
-        <Typography fs={16} color="GRAY.300">
-          총 인원은 10초마다 동기화됩니다.
-        </Typography>
+        <Typography fs={16}>총 인원은 10초마다 동기화됩니다.</Typography>
       </FlexWrapper>
       <FlexWrapper direction="column" gap={20} style={{ alignItems: "center" }}>
         <Typography fs={20} fw="MEDIUM">
@@ -71,7 +74,9 @@ const SafetyFrame = () => {
         </FlexWrapper>
       </FlexWrapper>
       <FlexWrapper direction="column" gap={20}>
-        <Button onClick={handleIncrement}>입장</Button>
+        <Button type="outlined" onClick={handleIncrement}>
+          입장
+        </Button>
         <Button type="outlined" onClick={handleDecrement}>
           퇴장
         </Button>

@@ -21,6 +21,7 @@ const NavListInner = styled.div`
   background-color: ${({ theme }) => theme.colors.WHITE};
   padding: 16px;
   margin-left: 16px;
+  margin-top: 8px;
   width: 40%;
   border-radius: ${({ theme }) => theme.round.md};
   border: 1px solid ${({ theme }) => theme.colors.GRAY[200]};
@@ -33,7 +34,7 @@ const StyledNavItem = styled(NavItem)`
 `;
 
 const MobileNav: React.FC<NavListProps> = ({ keys }) => (
-  <NavListInner>
+  <NavListInner className="mobile-nav">
     {keys.map(key => (
       <StyledNavItem key={key} {...paths[key]} />
     ))}

@@ -5,16 +5,17 @@ import Image from "next/image";
 
 import map from "@kamf-safety/web/assets/map.png";
 import timetable from "@kamf-safety/web/assets/timetable.png";
+import styled from "styled-components";
+
+const MapPageBackground = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+`;
 
 const MapPage: React.FC = () => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: "32px",
-    }}
-  >
+  <MapPageBackground>
     <Image
       src={map}
       alt="KAMF map"
@@ -25,7 +26,7 @@ const MapPage: React.FC = () => (
       alt="KAMF timetable"
       style={{ width: "100%", maxWidth: "600px", height: "auto" }}
     />
-  </div>
+  </MapPageBackground>
 );
 
 export default MapPage;

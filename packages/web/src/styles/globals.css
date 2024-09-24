@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 :root {
-  background: #ffffff;
+  background: linear-gradient(180deg, #324d82 0%, #e58998 50%, #f0a68b 100%);
   min-height: 100vh;
 }
 
