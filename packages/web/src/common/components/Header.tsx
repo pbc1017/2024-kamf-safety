@@ -17,7 +17,9 @@ const HeaderContainer = styled.header`
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isEnglish, setIsEnglish] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(
+    localStorage.getItem("isEnglish") === "true",
+  );
 
   const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
@@ -48,7 +50,10 @@ const Header: React.FC = () => {
         <Icon
           type="language"
           size={24}
-          onClick={() => setIsEnglish(!isEnglish)}
+          onClick={() => {
+            setIsEnglish(!isEnglish);
+            window.location.reload();
+          }}
         />
       </HeaderContainer>
       {isOpen && <MobileNav keys={["HOME", "SAFETY"]} />}
