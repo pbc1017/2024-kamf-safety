@@ -1,7 +1,7 @@
 import { Safety } from "@kamf-safety/api/drizzle/schema/safety.schema";
 import { Inject, Injectable } from "@nestjs/common";
 import { MySql2Database } from "drizzle-orm/mysql2";
-import { sql, inArray } from "drizzle-orm";
+import { sql, inArray, eq, desc } from "drizzle-orm";
 
 import { DrizzleAsyncProvider } from "src/drizzle/drizzle.provider";
 
@@ -51,5 +51,19 @@ export class SafetyRepository {
     );
 
     return total;
+  }
+
+  async getCountByUserId(userId: string) {
+    return this.db
+      .select({
+        userId: Safety.userId,
+        increment: Safety.increment,
+        decrement: Safety.decrement,
+      })
+      .from(Safety)
+      .where(eq(Safety.userId, userId))
+      .orderBy(desc(Safety.createdAt))
+      .limit(1)
+      .then(res => res[0]);
   }
 }

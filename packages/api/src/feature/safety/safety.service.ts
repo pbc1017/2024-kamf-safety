@@ -3,6 +3,10 @@ import {
   ApiSafe001RequestBody,
   ApiSafe001ResponseOK,
 } from "@kamf-safety/interface/api/safety/apiSafe001";
+import {
+  ApiSafe002RequestQuery,
+  ApiSafe002ResponseOK,
+} from "@kamf-safety/interface/api/safety/apiSafe002";
 import { SafetyRepository } from "./safety.repository";
 
 @Injectable()
@@ -17,5 +21,13 @@ export class SafetyService {
     );
     const total = await this.safetyRepository.getTotal();
     return { total };
+  }
+
+  async getCount(query: ApiSafe002RequestQuery): Promise<ApiSafe002ResponseOK> {
+    const count = await this.safetyRepository.getCountByUserId(query.userId);
+    return {
+      myIncrement: count.increment,
+      myDecrement: count.decrement,
+    };
   }
 }
