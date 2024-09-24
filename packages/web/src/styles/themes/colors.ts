@@ -6,7 +6,7 @@
 const colors = {
   WHITE: "#FFFFFF",
   BLACK: "#333333",
-  PRIMARY: "#FFC3A7",
+  PRIMARY: "#FF8248",
   BACKGROUND:
     "linear-gradient(180deg, #EAFAFC 0%, #FFFFFF 33.33%, #FFFFFF 66.67%, #FFFFFF 100%)",
   GREEN: {
@@ -15,8 +15,10 @@ const colors = {
     600: "#008B1C",
   },
   ORANGE: {
-    200: "#FFDDCE",
+    100: "#FFDDCE",
+    200: "#FFC3A7",
     600: "#FF9E71",
+    800: "#FE631B",
   },
   BLUE: {
     200: "#E7F0FF",
