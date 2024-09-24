@@ -1,44 +1,39 @@
 "use client";
 
-import styled from "styled-components";
-import Typography from "../common/components/Typography";
 import Button from "../common/components/Button";
-
-const MainPageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  height: 100%;
-`;
-
-const CountWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-`;
+import FlexWrapper from "../common/components/FlexWrapper";
+import Typography from "../common/components/Typography";
 
 const Home = () => (
-  <MainPageWrapper>
-    <Typography>총 인원</Typography>
-    <Typography>000명</Typography>
-    <CountWrapper>
-      <MainPageWrapper>
-        <Typography>내가 센 입장 인원</Typography>
-        <Typography>00명</Typography>
-      </MainPageWrapper>
-      <MainPageWrapper>
-        <Typography>내가 센 퇴장 인원</Typography>
-        <Typography>00명</Typography>
-      </MainPageWrapper>
-    </CountWrapper>
-
-    <Button type="outlined">입장</Button>
-    <Button>퇴장</Button>
-  </MainPageWrapper>
+  <FlexWrapper direction="column" gap={32} justify="center">
+    <Typography fs={24} fw="BOLD" style={{ alignSelf: "center" }}>
+      2024 KAMF 안전관리
+    </Typography>
+    <FlexWrapper direction="column" gap={20} style={{ alignItems: "center" }}>
+      <Typography fs={20} fw="MEDIUM">
+        총 인원
+      </Typography>
+      <Typography fs={16}>000명</Typography>
+    </FlexWrapper>
+    <FlexWrapper direction="row" gap={40}>
+      <FlexWrapper direction="column" gap={20} style={{ alignItems: "center" }}>
+        <Typography fs={20} fw="MEDIUM">
+          내가 센 입장 인원
+        </Typography>
+        <Typography fs={16}>00명</Typography>
+      </FlexWrapper>
+      <FlexWrapper direction="column" gap={20} style={{ alignItems: "center" }}>
+        <Typography fs={20} fw="MEDIUM">
+          내가 센 퇴장 인원
+        </Typography>
+        <Typography fs={16}>00명</Typography>
+      </FlexWrapper>
+    </FlexWrapper>
+    <FlexWrapper direction="column" gap={20}>
+      <Button type="outlined">입장</Button>
+      <Button>퇴장</Button>
+    </FlexWrapper>
+  </FlexWrapper>
 );
 
 export default Home;

@@ -3,9 +3,9 @@ import {
   defineAxiosMock,
   UnexpectedAPIResponseError,
 } from "@kamf-safety/web/lib/axios";
-import { apiTmp000 } from "@sparcs-clubs/interface/api/_example/endpoints/apiTmp000";
 import { useQuery } from "@tanstack/react-query";
 import { z } from "zod";
+import { apiTmp000 } from "@kamf-safety/interface/api/_example/apiTmp000";
 
 // TODO: This might better work using z.discriminatedUnion
 type ISuccessResponseType =
