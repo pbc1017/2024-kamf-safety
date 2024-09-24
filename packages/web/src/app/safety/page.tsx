@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Button from "../common/components/Button";
-import FlexWrapper from "../common/components/FlexWrapper";
-import Typography from "../common/components/Typography";
+import Button from "@kamf-safety/web/common/components/Button";
+import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
+import Typography from "@kamf-safety/web/common/components/Typography";
 
 const Home = () => {
   const [total, setTotal] = useState(0);
