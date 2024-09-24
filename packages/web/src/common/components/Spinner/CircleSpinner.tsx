@@ -14,7 +14,7 @@ export default styled.div`
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 3px solid #53c08b;
+    border: 3px solid ${({ theme }) => theme.colors.PRIMARY};
     animation: prixClipFix 2s linear infinite;
   }
 
