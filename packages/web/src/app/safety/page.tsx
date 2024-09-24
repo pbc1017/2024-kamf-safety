@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@kamf-safety/web/common/components/Button";
 import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
 import Typography from "@kamf-safety/web/common/components/Typography";
 
-const Home = () => {
+const Safety = () => {
   const [total, setTotal] = useState(0);
   const [myIncrement, setMyIncrement] = useState(
     parseInt(localStorage.getItem("myI") || "0"),
@@ -80,4 +80,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Safety;
