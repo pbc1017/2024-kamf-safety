@@ -37,7 +37,12 @@ const LoginPage: React.FC = () => {
           gap: "20px",
         }}
       >
-        <Typography fs={24} fw="BOLD" style={{ marginBottom: "12px" }}>
+        <Typography
+          fs={24}
+          fw="BOLD"
+          color="WHITE"
+          style={{ marginBottom: "12px" }}
+        >
           안전관리 로그인
         </Typography>
         <FlexWrapper direction="column" gap={12}>
@@ -65,8 +70,8 @@ const LoginPage: React.FC = () => {
           type="submit"
           style={{
             padding: "10px",
-            backgroundColor: themes.colors.PRIMARY,
-            color: "white",
+            backgroundColor: themes.colors.WHITE,
+            color: "black",
             border: "none",
             borderRadius: "4px",
           }}
