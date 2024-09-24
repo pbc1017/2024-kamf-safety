@@ -7,6 +7,7 @@ import { Icon as MUIIcon } from "@mui/material";
 interface IconProps {
   type: string;
   size: number;
+  onClick?: () => void;
 }
 
 const IconInner = styled.div<{ size: number }>`
@@ -15,8 +16,8 @@ const IconInner = styled.div<{ size: number }>`
   color: ${({ theme }) => theme.colors.BLACK};
 `;
 
-const Icon: React.FC<IconProps> = ({ type, size }) => (
-  <IconInner size={size}>
+const Icon: React.FC<IconProps> = ({ type, size, onClick = () => {} }) => (
+  <IconInner size={size} onClick={onClick}>
     <MUIIcon fontSize="inherit">{type}</MUIIcon>
   </IconInner>
 );
