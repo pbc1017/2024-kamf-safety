@@ -15,12 +15,12 @@ const requestQuery = z.object({});
 
 const requestBody = z.object({
   userId: z.string().max(128),
-  increament: z.number().int().min(0),
-  decreament: z.number().int().min(0),
+  increment: z.number().int().min(0),
+  decrement: z.number().int().min(0),
 });
 
 const responseBodyMap = {
-  [HttpStatusCode.Ok]: z.object({
+  [HttpStatusCode.Created]: z.object({
     myIncrement: z.number().int(),
     myDecrement: z.number().int(),
     total: z.number().int(),
@@ -42,7 +42,7 @@ const apiSafe001 = {
 type ApiSafe001RequestParam = z.infer<typeof apiSafe001.requestParam>;
 type ApiSafe001RequestQuery = z.infer<typeof apiSafe001.requestQuery>;
 type ApiSafe001RequestBody = z.infer<typeof apiSafe001.requestBody>;
-type ApiSafe001ResponseOK = z.infer<(typeof apiSafe001.responseBodyMap)[200]>;
+type ApiSafe001ResponseOK = z.infer<(typeof apiSafe001.responseBodyMap)[201]>;
 
 export default apiSafe001;
 
