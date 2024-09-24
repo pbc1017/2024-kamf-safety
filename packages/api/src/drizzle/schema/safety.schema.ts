@@ -6,8 +6,8 @@ export const Safety = mysqlTable("safety", {
   userId: varchar("user_id", { length: 128 })
     .notNull()
     .references(() => User.id),
-  increament: int("increament").notNull(),
-  decreament: int("decreament").notNull(),
+  increment: int("increment").notNull(),
+  decrement: int("decrement").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   deletedAt: timestamp("deleted_at"),
 });
