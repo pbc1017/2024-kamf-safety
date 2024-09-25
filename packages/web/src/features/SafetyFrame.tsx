@@ -39,6 +39,13 @@ const SafetyFrame = () => {
     setMyDecrement(myDecrement + 1);
   };
 
+  const handelLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("myI");
+    localStorage.removeItem("myD");
+    window.location.reload();
+  };
+
   return (
     <FlexWrapper direction="column" gap={32} justify="center">
       <FlexWrapper direction="column" gap={12} style={{ alignItems: "center" }}>
@@ -88,6 +95,9 @@ const SafetyFrame = () => {
           퇴장
         </Button>
       </FlexWrapper>
+      <Button type="outlined" onClick={handelLogout}>
+        로그아웃
+      </Button>
     </FlexWrapper>
   );
 };
