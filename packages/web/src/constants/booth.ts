@@ -1,0 +1,121 @@
+export const booth = [
+  { index: 0, name_kr: "합동상황실", name_en: "situation room" },
+  { index: 1, name_kr: "인포부스", name_en: "Information Booth" },
+  {
+    index: 2,
+    name_kr: "카이 올림픽 & KAMF를 쓰다",
+    name_en: "KAIST Olympics & Wrote KAMF",
+  },
+  { index: 3, name_kr: "마약은 NEVEREVER 안돼요!", name_en: "NEVEREVER DRUGS" },
+  { index: 4, name_kr: "키사 (과자)", name_en: "KISA (Snacks)" },
+  {
+    index: 5,
+    name_kr: "요거트 아EE스크림의 정석",
+    name_en: "The Classic of Yogurt IcecrEEam",
+  },
+  { index: 6, name_kr: "콜팝핑", name_en: "Chicken Fing" },
+  {
+    index: 7,
+    name_kr: "학뽀귀의 딸기가 복지다",
+    name_en: "Strawberry is welfare",
+  },
+  {
+    index: 8,
+    name_kr: "수채화캐리커쳐_소운",
+    name_en: "Watercolor Caricatures_Soun",
+  },
+  {
+    index: 9,
+    name_kr: "나만의 구슬 레터링 풍선 만들기",
+    name_en: "Create Your Own Lettering Balloon",
+  },
+  {
+    index: 10,
+    name_kr: "우드버닝 체험, 헤나타투_글고운",
+    name_en: "Wood Burning and Henna Tattoo",
+  },
+  {
+    index: 11,
+    name_kr: "나만의 향수 만들기",
+    name_en: "Create Your Own Perfume",
+  },
+  { index: 12, name_kr: "아바타 메이커", name_en: "Avatar Maker" },
+  {
+    index: 13,
+    name_kr: "국가권력급 에이드 콜팝",
+    name_en: "National level popcorn chicken",
+  },
+  {
+    index: 14,
+    name_kr: "나만의 업사이클링 키링 만들기",
+    name_en: "DIY Upcycling Key-rings",
+  },
+  {
+    index: 15,
+    name_kr: "MR 에어하키 & 인형뽑기",
+    name_en: "MR air hockey & claw machine",
+  },
+  {
+    index: 16,
+    name_kr: "운세를 점쳐보세요! 행운의 타로",
+    name_en: "Get your Fortune Told! Lucky Tarot",
+  },
+  { index: 17, name_kr: "LP 음악회", name_en: "LP music concert" },
+  { index: 18, name_kr: "공룡간식위원회", name_en: "DinoSpaceCommitee" },
+  {
+    index: 19,
+    name_kr: "전산학부 집행위원회",
+    name_en: "School of Computing Executive Committee",
+  },
+  {
+    index: 20,
+    name_kr: "곰발바닥 팔찌 & 비즈키링 부스",
+    name_en: "Gombal bracelet & beads Keychain making",
+  },
+  {
+    index: 21,
+    name_kr: "빙수 하나 사무라이~",
+    name_en: "Break the ice with kendo",
+  },
+  {
+    index: 22,
+    name_kr: "KAINATION 넙죽이빵",
+    name_en: "KAINATION Nubzuki Bread",
+  },
+  { index: 23, name_kr: "카이스트 헤럴드", name_en: "The KAIST Herald" },
+  { index: 24, name_kr: "카페인 충전소", name_en: "Caffeine Charge" },
+  {
+    index: 25,
+    name_kr: "오늘도 든든 감성2호점",
+    name_en: "A Happy Tummy Everyday",
+  },
+  {
+    index: 26,
+    name_kr: "주류 판매 부스 (협동조합)",
+    name_en: "Alcohol sales booth",
+  },
+  { index: 27, name_kr: "봌닭봌닭", name_en: "VOKDAKVOKDAK" },
+  { index: 28, name_kr: "피나치궁", name_en: "PINNACHIGOONG" },
+  { index: 29, name_kr: "꽃보다 새참", name_en: "Farmer Snack" },
+  { index: 30, name_kr: "오렌집", name_en: "Orange House" },
+  {
+    index: 31,
+    name_kr: "고래당 X Lucky Strike",
+    name_en: "Whale Billi X Lucky Strike",
+  },
+  {
+    index: 32,
+    name_kr: "“식도락도 락이다.”",
+    name_en: "Kimchi-mari noodles for the soul",
+  },
+  {
+    index: 33,
+    name_kr: "요거지예",
+    name_en: "Here it is, the yogurt ice cream made by Kaisiel!",
+  },
+  {
+    index: 34,
+    name_kr: "물리학과 귀신의 집",
+    name_en: "House of horror(Physics department)",
+  },
+];
