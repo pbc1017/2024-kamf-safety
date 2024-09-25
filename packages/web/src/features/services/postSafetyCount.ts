@@ -21,8 +21,7 @@ const postSafetyCount = async (
 
   switch (status) {
     case 201:
-      console.log(data);
-      return apiSafe001.responseBodyMap[201].parse(data);
+      return data;
     default:
       throw new UnexpectedAPIResponseError();
   }

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Button from "@kamf-safety/web/common/components/Button";
 import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
 import Typography from "@kamf-safety/web/common/components/Typography";
+import postSafetyCount from "./services/postSafetyCount";
 
 const SafetyFrame = () => {
   const [total, setTotal] = useState(0);
@@ -15,8 +16,15 @@ const SafetyFrame = () => {
   );
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setInterval(async () => {
       setTotal(100 + myIncrement - myDecrement);
+      const userId = localStorage.getItem("user") || "";
+      const data = await postSafetyCount({
+        userId,
+        increment: myIncrement,
+        decrement: myDecrement,
+      });
+      setTotal(data.total);
     }, 10000);
 
     return () => clearInterval(timer);
