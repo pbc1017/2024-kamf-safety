@@ -5,22 +5,35 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import SafetyFrame from "@kamf-safety/web/features/SafetyFrame";
 import AsyncBoundary from "@kamf-safety/web/common/components/AsyncBoundary";
+import { useGetMyCount } from "@kamf-safety/web/features/services/getMyCount";
 
 const Safety = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  if (localStorage.getItem("user") === null) {
+  const userId = localStorage.getItem("user");
+  if (userId === null) {
     router.push("/login");
   }
 
+  const { data, isLoading, isError } = useGetMyCount({
+    userId,
+  });
+
+  console.log(data);
+
   useEffect(() => {
-    setTimeout(() => {
+    if (data === undefined) {
+      setLoading(true);
+    } else {
       setLoading(false);
-    }, 1000);
-  }, []);
+      localStorage.setItem("myI", data.myIncrement.toString());
+      localStorage.setItem("myD", data.myDecrement.toString());
+      console.log(localStorage.getItem("myI"));
+    }
+  }, [data]);
 
   return (
-    <AsyncBoundary isLoading={loading}>
+    <AsyncBoundary isLoading={loading || isLoading} isError={isError}>
       <SafetyFrame />
     </AsyncBoundary>
   );

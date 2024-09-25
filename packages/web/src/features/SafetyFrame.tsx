@@ -17,7 +17,6 @@ const SafetyFrame = () => {
 
   useEffect(() => {
     const timer = setInterval(async () => {
-      setTotal(100 + myIncrement - myDecrement);
       const userId = localStorage.getItem("user") || "";
       const data = await postSafetyCount({
         userId,

@@ -18,7 +18,7 @@ const requestQuery = z.object({
 const requestBody = z.object({});
 
 const responseBodyMap = {
-  [HttpStatusCode.Created]: z.object({
+  [HttpStatusCode.Ok]: z.object({
     myIncrement: z.number().int(),
     myDecrement: z.number().int(),
   }),
@@ -39,7 +39,7 @@ const apiSafe002 = {
 type ApiSafe002RequestParam = z.infer<typeof apiSafe002.requestParam>;
 type ApiSafe002RequestQuery = z.infer<typeof apiSafe002.requestQuery>;
 type ApiSafe002RequestBody = z.infer<typeof apiSafe002.requestBody>;
-type ApiSafe002ResponseOK = z.infer<(typeof apiSafe002.responseBodyMap)[201]>;
+type ApiSafe002ResponseOK = z.infer<(typeof apiSafe002.responseBodyMap)[200]>;
 
 export default apiSafe002;
 
