@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
+import logo from "@kamf-safety/web/assets/logo.png";
 import Icon from "./Icon";
 import MobileNav from "./NavTools/MobileNav";
 
@@ -9,6 +11,7 @@ const HeaderContainer = styled.header`
   padding: 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.WHITE};
   position: sticky;
   top: 0;
@@ -47,6 +50,7 @@ const Header: React.FC = () => {
     <>
       <HeaderContainer>
         <Icon type="menu" size={24} onClick={() => setIsOpen(!isOpen)} />
+        <Image src={logo} alt="KAMF logo" width={54} height={36} />
         <Icon
           type="language"
           size={24}
