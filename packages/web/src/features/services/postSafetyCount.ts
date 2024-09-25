@@ -2,7 +2,6 @@ import apiSafe001 from "@kamf-safety/interface/api/safety/apiSafe001";
 
 import {
   axiosClient,
-  defineAxiosMock,
   UnexpectedAPIResponseError,
 } from "@kamf-safety/web/lib/axios";
 
@@ -28,9 +27,3 @@ const postSafetyCount = async (
 };
 
 export default postSafetyCount;
-
-defineAxiosMock(mock => {
-  mock
-    .onPost(apiSafe001.url(), { userId: "1", increment: 15, decrement: 20 })
-    .reply(() => [201, { total: 100, myIncrement: 15, myDecrement: 20 }]);
-});

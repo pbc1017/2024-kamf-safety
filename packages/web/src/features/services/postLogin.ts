@@ -2,7 +2,6 @@ import apiUser001 from "@kamf-safety/interface/api/user/apiUser001";
 
 import {
   axiosClient,
-  defineAxiosMock,
   UnexpectedAPIResponseError,
 } from "@kamf-safety/web/lib/axios";
 
@@ -28,9 +27,3 @@ const postLogin = async (
 };
 
 export default postLogin;
-
-defineAxiosMock(mock => {
-  mock
-    .onPost(apiUser001.url(), { studentId: 1, password: 1234 })
-    .reply(() => [201, { userId: "1" }]);
-});
