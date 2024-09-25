@@ -30,5 +30,5 @@ export const useGetMyCount = (requestQuery: ApiSafe002RequestQuery) =>
 defineAxiosMock(mock => {
   mock
     .onGet(apiSafe002.url())
-    .reply(() => [200, { myIncrement: 3, myDecrement: 3 }]);
+    .reply(() => [200, { myIncrement: 5, myDecrement: 10 }]);
 });
