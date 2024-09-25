@@ -9,7 +9,7 @@ import AsyncBoundary from "@kamf-safety/web/common/components/AsyncBoundary";
 const Safety = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  if (localStorage.getItem("studentId") === null) {
+  if (localStorage.getItem("user") === null) {
     router.push("/login");
   }
 

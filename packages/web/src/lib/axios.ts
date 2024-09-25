@@ -11,6 +11,7 @@ import errorInterceptor from "./_axios/axiosErrorInterceptor";
  */
 export const axiosClient = axios.create({
   withCredentials: true,
+  baseURL: env.NEXT_PUBLIC_API_URL,
 });
 
 // Defines middleware for axiosClient

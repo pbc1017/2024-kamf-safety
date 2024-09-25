@@ -6,17 +6,21 @@ import { useRouter } from "next/navigation";
 import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
 import Typography from "@kamf-safety/web/common/components/Typography";
 import themes from "@kamf-safety/web/styles/themes";
+import postLogin from "@kamf-safety/web/features/services/postLogin";
 
 const LoginPage: React.FC = () => {
-  const [studentId, setStudentId] = useState("");
-  const [password, setPassword] = useState("");
+  const [studentId, setStudentId] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const router = useRouter();
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    // 임시 로그인 로직
-    localStorage.setItem("studentId", studentId);
+    const userId = await postLogin({
+      studentId: Number(studentId),
+      password,
+    });
+    localStorage.setItem("user", userId.userId);
     router.push("/safety");
   };
 
