@@ -26,9 +26,12 @@ const Safety = () => {
       setLoading(true);
     } else {
       setLoading(false);
-      localStorage.setItem("myI", data.myIncrement.toString());
-      localStorage.setItem("myD", data.myDecrement.toString());
-      console.log(localStorage.getItem("myI"));
+      if (localStorage.getItem("myI") === null) {
+        localStorage.setItem("myI", data.myIncrement.toString());
+      }
+      if (localStorage.getItem("myD") === null) {
+        localStorage.setItem("myD", data.myDecrement.toString());
+      }
     }
   }, [data]);
 

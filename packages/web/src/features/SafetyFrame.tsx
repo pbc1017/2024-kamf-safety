@@ -7,7 +7,7 @@ import Typography from "@kamf-safety/web/common/components/Typography";
 import postSafetyCount from "./services/postSafetyCount";
 
 const SafetyFrame = () => {
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState("-");
   const [myIncrement, setMyIncrement] = useState(
     parseInt(localStorage.getItem("myI") || "0"),
   );
@@ -23,7 +23,7 @@ const SafetyFrame = () => {
         increment: myIncrement,
         decrement: myDecrement,
       });
-      setTotal(data.total);
+      setTotal(data.total.toString());
     }, 10000);
 
     return () => clearInterval(timer);
