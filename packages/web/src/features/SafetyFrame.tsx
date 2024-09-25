@@ -24,7 +24,7 @@ const SafetyFrame = () => {
         decrement: myDecrement,
       });
       setTotal(data.total.toString());
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [myIncrement, myDecrement]);
@@ -57,7 +57,7 @@ const SafetyFrame = () => {
         >
           2024 KAMF 안전관리
         </Typography>
-        <Typography fs={16}>총 인원은 10초마다 동기화됩니다.</Typography>
+        <Typography fs={16}>총 인원은 5초마다 동기화됩니다.</Typography>
       </FlexWrapper>
       <FlexWrapper direction="column" gap={20} style={{ alignItems: "center" }}>
         <Typography fs={20} fw="MEDIUM">

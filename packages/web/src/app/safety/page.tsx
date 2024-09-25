@@ -19,8 +19,6 @@ const Safety = () => {
     userId,
   });
 
-  console.log(data);
-
   useEffect(() => {
     if (data === undefined) {
       setLoading(true);
