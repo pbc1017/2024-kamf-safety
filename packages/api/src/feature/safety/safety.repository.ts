@@ -1,7 +1,7 @@
 import { Safety } from "@kamf-safety/api/drizzle/schema/safety.schema";
 import { Inject, Injectable } from "@nestjs/common";
 import { MySql2Database } from "drizzle-orm/mysql2";
-import { sql, inArray, eq, desc } from "drizzle-orm";
+import { sql, inArray, eq, desc, and, between } from "drizzle-orm";
 
 import { DrizzleAsyncProvider } from "src/drizzle/drizzle.provider";
 
@@ -21,6 +21,24 @@ export class SafetyRepository {
   }
 
   async getTotal() {
+    const today = new Date();
+    const startOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+      0,
+      0,
+      0,
+    );
+    const endOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+      23,
+      59,
+      59,
+    );
+
     const results = await this.db
       .select({
         userId: Safety.userId,
@@ -38,6 +56,7 @@ export class SafetyRepository {
           this.db
             .select({ maxCreatedAt: sql`MAX(${Safety.createdAt})` })
             .from(Safety)
+            .where(between(Safety.createdAt, startOfDay, endOfDay))
             .groupBy(Safety.userId),
         ),
       )
@@ -54,16 +73,42 @@ export class SafetyRepository {
   }
 
   async getCountByUserId(userId: string) {
-    return this.db
-      .select({
-        userId: Safety.userId,
-        increment: Safety.increment,
-        decrement: Safety.decrement,
-      })
-      .from(Safety)
-      .where(eq(Safety.userId, userId))
-      .orderBy(desc(Safety.createdAt))
-      .limit(1)
-      .then(res => res[0]);
+    const today = new Date();
+    const startOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+      0,
+      0,
+      0,
+    );
+    const endOfDay = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+      23,
+      59,
+      59,
+    );
+
+    return (
+      this.db
+        .select({
+          userId: Safety.userId,
+          increment: Safety.increment,
+          decrement: Safety.decrement,
+        })
+        .from(Safety)
+        // createdAt이 오늘인 것 중에서 가장 최근 것을 가져옴
+        .where(
+          and(
+            eq(Safety.userId, userId),
+            between(Safety.createdAt, startOfDay, endOfDay),
+          ),
+        )
+        .orderBy(desc(Safety.createdAt))
+        .limit(1)
+        .then(res => res[0])
+    );
   }
 }

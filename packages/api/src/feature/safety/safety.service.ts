@@ -25,9 +25,11 @@ export class SafetyService {
 
   async getCount(query: ApiSafe002RequestQuery): Promise<ApiSafe002ResponseOK> {
     const count = await this.safetyRepository.getCountByUserId(query.userId);
+    const total = await this.safetyRepository.getTotal();
     return {
-      myIncrement: count.increment,
-      myDecrement: count.decrement,
+      total,
+      myIncrement: count?.increment || 0,
+      myDecrement: count?.decrement || 0,
     };
   }
 }
