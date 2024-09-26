@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
@@ -15,6 +15,12 @@ const LoginPage: React.FC = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    LocalStorage.removeItem("myI");
+    LocalStorage.removeItem("myD");
+    LocalStorage.removeItem("total");
+  }, []);
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const userId = await postLogin({
@@ -22,6 +28,10 @@ const LoginPage: React.FC = () => {
       password,
     });
     LocalStorage.setItem("user", userId.userId);
+    const koreanTime = new Date().toLocaleDateString("ko-KR", {
+      timeZone: "Asia/Seoul",
+    });
+    LocalStorage.setItem("lastLogin", koreanTime);
     router.push("/safety");
   };
 

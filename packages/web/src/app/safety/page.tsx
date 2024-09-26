@@ -9,14 +9,11 @@ import SafetyLoadingFrame from "@kamf-safety/web/features/SafetyLoadingFrame";
 const Safety = () => {
   const router = useRouter();
   const userId = LocalStorage.getItem("user");
-  if (userId === null) {
-    if (typeof window !== "undefined") {
-      router.push("/login");
-    }
-    return null;
+  if (userId === null && typeof window !== "undefined") {
+    router.push("/login");
   }
 
-  return <SafetyLoadingFrame userId={userId} />;
+  return <SafetyLoadingFrame userId={userId ?? ""} />;
 };
 
 export default Safety;

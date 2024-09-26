@@ -16,6 +16,18 @@ const SafetyFrame = () => {
     parseInt(LocalStorage.getItem("myD") || "0"),
   );
 
+  const lastLogin = LocalStorage.getItem("lastLogin");
+  const today = new Date().toLocaleDateString("ko-KR", {
+    timeZone: "Asia/Seoul",
+  });
+  if (lastLogin !== today) {
+    LocalStorage.removeItem("myI");
+    LocalStorage.removeItem("myD");
+    setMyIncrement(0);
+    setMyDecrement(0);
+    LocalStorage.setItem("lastLogin", today);
+  }
+
   useEffect(() => {
     const timer = setInterval(async () => {
       const userId = LocalStorage.getItem("user") || "";
