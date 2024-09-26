@@ -20,8 +20,10 @@
     "migrate:dev": "dotenv -- pnpm -F api migrate:dev",
     "typecheck": "pnpm -r typecheck",
     "lint": "pnpm eslint . && pnpm prettier --config ./.prettierrc --check -u .",
-    "build": "pnpm -r build",
-    "clean": "pnpm -r clean"
+    "build": "pnpm interface build && pnpm web build && pnpm api build",
+    "clean": "pnpm -r clean",
+    "start:web": "pnpm interface build && pnpm web build && pnpm web start",
+    "start:api": "pnpm interface build && pnpm api build && pnpm api start:prod"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
