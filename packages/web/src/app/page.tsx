@@ -43,6 +43,7 @@ const MapPage: React.FC = () => {
       </Typography>
       {booth.map(item => (
         <BoothListItem
+          key={item.index}
           index={item.index}
           title={isEnglish ? item.name_en : item.name_kr}
         />
