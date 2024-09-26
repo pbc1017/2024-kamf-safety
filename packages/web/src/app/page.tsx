@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import map_kr from "@kamf-safety/web/assets/map_kr.png";
@@ -10,6 +10,7 @@ import Typography from "../common/components/Typography";
 import BoothListItem from "../common/components/BoothListItem";
 import { booth } from "../constants/booth";
 import LocalStorage from "../utils/localStorage";
+import CircleSpinner from "../common/components/Spinner/CircleSpinner";
 
 const MapPageBackground = styled.div`
   display: flex;
@@ -19,7 +20,16 @@ const MapPageBackground = styled.div`
 `;
 
 const MapPage: React.FC = () => {
-  const isEnglish = LocalStorage.getItem("isEnglish") === "true";
+  const [isEnglish, setIsEnglish] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setIsEnglish(LocalStorage.getItem("isEnglish") === "true");
+  }, []);
+
+  if (isEnglish === null) {
+    return <CircleSpinner />;
+  }
+
   return (
     <MapPageBackground>
       <Typography fs={32} color="WHITE" fw="BOLD">
