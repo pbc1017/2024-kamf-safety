@@ -8,7 +8,7 @@ import postSafetyCount from "./services/postSafetyCount";
 import LocalStorage from "../utils/localStorage";
 
 const SafetyFrame = () => {
-  const [total, setTotal] = useState("-");
+  const [total, setTotal] = useState(LocalStorage.getItem("total") || "-");
   const [myIncrement, setMyIncrement] = useState(
     parseInt(LocalStorage.getItem("myI") || "0"),
   );
@@ -25,6 +25,7 @@ const SafetyFrame = () => {
         decrement: myDecrement,
       });
       setTotal(data.total.toString());
+      LocalStorage.setItem("total", data.total.toString());
     }, 5000);
 
     return () => clearInterval(timer);
@@ -44,6 +45,7 @@ const SafetyFrame = () => {
     LocalStorage.removeItem("user");
     LocalStorage.removeItem("myI");
     LocalStorage.removeItem("myD");
+    LocalStorage.removeItem("total");
     window.location.reload();
   };
 
