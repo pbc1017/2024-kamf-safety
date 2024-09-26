@@ -14,8 +14,11 @@ import ResponsiveContent from "@kamf-safety/web/common/components/Responsive";
 import Header from "@kamf-safety/web/common/components/Header";
 
 export const metadata: Metadata = {
-  title: "2024 KAMF Safety",
+  title: "2024 KAMF",
   description: "Frontend Standard Stack v1.0.0",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
