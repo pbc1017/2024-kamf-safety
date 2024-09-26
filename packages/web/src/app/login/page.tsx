@@ -5,8 +5,9 @@ import { useRouter } from "next/navigation";
 
 import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
 import Typography from "@kamf-safety/web/common/components/Typography";
-import themes from "@kamf-safety/web/styles/themes";
+import colors from "@kamf-safety/web/styles/themes/colors";
 import postLogin from "@kamf-safety/web/features/services/postLogin";
+import LocalStorage from "@kamf-safety/web/utils/localStorage";
 
 const LoginPage: React.FC = () => {
   const [studentId, setStudentId] = useState<string>("");
@@ -20,7 +21,7 @@ const LoginPage: React.FC = () => {
       studentId: Number(studentId),
       password,
     });
-    localStorage.setItem("user", userId.userId);
+    LocalStorage.setItem("user", userId.userId);
     router.push("/safety");
   };
 
@@ -74,7 +75,7 @@ const LoginPage: React.FC = () => {
           type="submit"
           style={{
             padding: "10px",
-            backgroundColor: themes.colors.WHITE,
+            backgroundColor: colors.WHITE,
             color: "black",
             border: "none",
             borderRadius: "4px",

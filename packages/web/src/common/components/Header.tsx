@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import logo from "@kamf-safety/web/assets/logo.png";
+import LocalStorage from "@kamf-safety/web/utils/localStorage";
 import Icon from "./Icon";
 import MobileNav from "./NavTools/MobileNav";
 
@@ -21,7 +22,7 @@ const HeaderContainer = styled.header`
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEnglish, setIsEnglish] = useState(
-    localStorage.getItem("isEnglish") === "true",
+    LocalStorage.getItem("isEnglish") === "true",
   );
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -32,7 +33,7 @@ const Header: React.FC = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("isEnglish", isEnglish.toString());
+    LocalStorage.setItem("isEnglish", isEnglish.toString());
   }, [isEnglish]);
 
   useEffect(() => {

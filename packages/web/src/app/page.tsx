@@ -9,6 +9,7 @@ import styled from "styled-components";
 import Typography from "../common/components/Typography";
 import BoothListItem from "../common/components/BoothListItem";
 import { booth } from "../constants/booth";
+import LocalStorage from "../utils/localStorage";
 
 const MapPageBackground = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const MapPageBackground = styled.div`
 `;
 
 const MapPage: React.FC = () => {
-  const isEnglish = localStorage.getItem("isEnglish") === "true";
+  const isEnglish = LocalStorage.getItem("isEnglish") === "true";
   return (
     <MapPageBackground>
       <Typography fs={32} color="WHITE" fw="BOLD">

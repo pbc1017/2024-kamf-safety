@@ -5,19 +5,20 @@ import Button from "@kamf-safety/web/common/components/Button";
 import FlexWrapper from "@kamf-safety/web/common/components/FlexWrapper";
 import Typography from "@kamf-safety/web/common/components/Typography";
 import postSafetyCount from "./services/postSafetyCount";
+import LocalStorage from "../utils/localStorage";
 
 const SafetyFrame = () => {
   const [total, setTotal] = useState("-");
   const [myIncrement, setMyIncrement] = useState(
-    parseInt(localStorage.getItem("myI") || "0"),
+    parseInt(LocalStorage.getItem("myI") || "0"),
   );
   const [myDecrement, setMyDecrement] = useState(
-    parseInt(localStorage.getItem("myD") || "0"),
+    parseInt(LocalStorage.getItem("myD") || "0"),
   );
 
   useEffect(() => {
     const timer = setInterval(async () => {
-      const userId = localStorage.getItem("user") || "";
+      const userId = LocalStorage.getItem("user") || "";
       const data = await postSafetyCount({
         userId,
         increment: myIncrement,
@@ -30,19 +31,19 @@ const SafetyFrame = () => {
   }, [myIncrement, myDecrement]);
 
   const handleIncrement = () => {
-    localStorage.setItem("myI", (myIncrement + 1).toString());
+    LocalStorage.setItem("myI", (myIncrement + 1).toString());
     setMyIncrement(myIncrement + 1);
   };
 
   const handleDecrement = () => {
-    localStorage.setItem("myD", (myDecrement + 1).toString());
+    LocalStorage.setItem("myD", (myDecrement + 1).toString());
     setMyDecrement(myDecrement + 1);
   };
 
   const handelLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("myI");
-    localStorage.removeItem("myD");
+    LocalStorage.removeItem("user");
+    LocalStorage.removeItem("myI");
+    LocalStorage.removeItem("myD");
     window.location.reload();
   };
 
