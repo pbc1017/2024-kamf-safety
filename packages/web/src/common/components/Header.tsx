@@ -51,7 +51,15 @@ const Header: React.FC = () => {
     <>
       <HeaderContainer>
         <Icon type="menu" size={24} onClick={() => setIsOpen(!isOpen)} />
-        <Image src={logo} alt="KAMF logo" width={54} height={36} />
+        <Image
+          src={logo}
+          alt="KAMF logo"
+          width={54}
+          height={36}
+          onClick={() => {
+            window.location.href = "/";
+          }}
+        />
         <Icon
           type="language"
           size={24}
