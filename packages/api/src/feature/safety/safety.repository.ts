@@ -1,7 +1,7 @@
 import { Safety } from "@kamf-safety/api/drizzle/schema/safety.schema";
 import { Inject, Injectable } from "@nestjs/common";
 import { MySql2Database } from "drizzle-orm/mysql2";
-import { sql, inArray, eq, desc, and, between } from "drizzle-orm";
+import { sql, eq, desc, and, between } from "drizzle-orm";
 
 import { DrizzleAsyncProvider } from "src/drizzle/drizzle.provider";
 
@@ -39,33 +39,43 @@ export class SafetyRepository {
       59,
     );
 
+    // 서브쿼리 정의
+    const subquery = this.db
+      .select({
+        userId: Safety.userId,
+        latestCreatedAt: sql<Date>`MAX(${Safety.createdAt})`.as<Date>(
+          "latestCreatedAt",
+        ),
+      })
+      .from(Safety)
+      .where(between(Safety.createdAt, startOfDay, endOfDay))
+      .groupBy(Safety.userId)
+      .as("latestRecords");
+
     const results = await this.db
       .select({
         userId: Safety.userId,
-        totalIncrement: sql<number>`SUM(${Safety.increment})`.as<number>(
-          "totalIncrement",
-        ), // number로 명시
-        totalDecrement: sql<number>`SUM(${Safety.decrement})`.as<number>(
-          "totalDecrement",
-        ), // number로 명시
+        increment: sql<number>`MAX(${Safety.increment})`.as<number>(
+          "increment",
+        ),
+        decrement: sql<number>`MAX(${Safety.decrement})`.as<number>(
+          "decrement",
+        ),
+        createdAt: sql<Date>`MAX(${Safety.createdAt})`.as<Date>("createdAt"), // MAX() 사용
       })
       .from(Safety)
-      .where(
-        inArray(
-          Safety.createdAt,
-          this.db
-            .select({ maxCreatedAt: sql`MAX(${Safety.createdAt})` })
-            .from(Safety)
-            .where(between(Safety.createdAt, startOfDay, endOfDay))
-            .groupBy(Safety.userId),
+      .leftJoin(
+        subquery,
+        and(
+          eq(Safety.userId, subquery.userId),
+          eq(Safety.createdAt, subquery.latestCreatedAt),
         ),
       )
       .groupBy(Safety.userId)
       .execute();
 
     const total = results.reduce(
-      (acc, row) =>
-        acc + ((row.totalIncrement || 0) - (row.totalDecrement || 0)),
+      (acc, row) => acc + ((row.increment || 0) - (row.decrement || 0)),
       0,
     );
 
